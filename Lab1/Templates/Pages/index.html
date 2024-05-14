@@ -1,0 +1,19 @@
+{% extends 'Parts/main.html' %}
+
+{% block main-content %}
+<div class="row mt-5">
+{% for book in Books %}
+    <div class="col-4 mt-5 mb-5">
+        <div class="card" style="width: 18rem;height: 400px; background-color: #FFF8DC">
+            <img src="{{book.image}}" class="card-img-top" height="200px" alt="...">
+            <div class="card-body">
+              <h5 class="card-title" >{{ book.title }}</h5>
+              <p class="card-text ">Author: {{ book.author }}</p>
+              <p class="card-text ">Price: ${{ book.price }}</p>
+              <a href="{% url 'book-details' book.id %}" class="btn "  style="background-color: #6C0345; color: #FFF8DC;">More Details</a>             
+            </div>
+          </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock %}
